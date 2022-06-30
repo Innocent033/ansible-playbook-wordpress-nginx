@@ -17,7 +17,7 @@ If you're using vagrant add these lines to your **Vagrantfile**:
 
 ```
 config.vm.network :forwarded_port, guest: 80, host: 4567
-config.vm.network "private_network", ip: "192.168.9.212"
+config.vm.network "private_network", ip: "172.31.14.241"
 ```
 
 This allows a connection to the machine over ssh on the specified IP address. `"192.168.100.10"` can be swapped out for a different IP, but make sure it matches whatever is set in your ansible inventory file. 
@@ -25,7 +25,7 @@ This allows a connection to the machine over ssh on the specified IP address. `"
 Run `vagrant ssh-config` to see where your key is stored, and create or update your host machine's `~/.ssh/config` file. It should looks something like this with your IdentityFile switched out:
 
 ```
-Host 192.168.9.212
+Host172.31.14.241
   StrictHostKeyChecking no
   UserKnownHostsFile /dev/null
   IdentitiesOnly yes
@@ -41,7 +41,7 @@ For whatever reason, the Ubuntu team is not following the standard vagrant box c
 
 Verify that you're able to ssh into the machine:
 
-`ssh vagrant@192.168.9.212`
+`ssh vagrant@172.31.14.241`
 
 ### 2. Clone the repository
 
@@ -58,11 +58,11 @@ Create a hosts file to set your web server's IP or move `hosts.example` to `host
 mv hosts.example hosts
 ```
 
-Change `192.168.9.212` to your server's URL or the IP address of your virtual machine:
+Change `172.31.14.241` to your server's URL or the IP address of your virtual machine:
 
 ```
 [web-server]
-192.168.9.212
+172.31.14.241
 ```
 
 ### 4. Run the playbook
@@ -79,4 +79,4 @@ $ ansible-playbook playbook.yml -i hosts
 
 ### 5. Finish the install
 
-Open your web browser and navigate to [http://192.168.9.212](http://192.168.9.212) (or your webserver's IP) to finish the WordPress installation.
+Open your web browser and navigate to [http://172.31.14.241](http://172.31.14.241) (or your webserver's IP) to finish the WordPress installation.
