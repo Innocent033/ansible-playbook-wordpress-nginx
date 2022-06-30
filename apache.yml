@@ -22,6 +22,6 @@
 #dev.inv
 
 [webservers]
-198.168.9.212 ansible_user=ubuntu 
+172.31.14.241 ansible_user=ubuntu 
 
 # this is the inventory file for remote server where we want to install nginx.
